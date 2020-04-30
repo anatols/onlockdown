@@ -22,7 +22,7 @@ function tallyMarks(count) {
     };
 
     const result = [];
-    for (let i = 0; i < (count / 5) - 1; i++) {
+    for (let i = 0; i < Math.floor(count / 5); i++) {
         result.push(generateTallyMark(5));
         result.push(document.createTextNode(" "));
     }
