@@ -80,7 +80,31 @@ function displayCountry(countryCode, updateURL = true) {
     tallyContainer.innerHTML = "";
     tallyMarks(durationDays).forEach(element => tallyContainer.appendChild(element));
 
-    document.querySelector("#total").innerHTML = durationDays + " day" + (durationDays > 1 ? "s" : "");
+    function pluralString(count, name) {
+        return `${ count } ${ name }${ count > 1 ? "s" : "" }`;
+    }
+
+    const durationWeeks = Math.floor(durationDays / 7);
+    const durationDaysOfWeek = durationDays % 7;
+
+    let totalString = "";
+    if (durationDays > 0) {
+        if (durationWeeks > 0) {
+            if (durationDaysOfWeek > 0) {
+                totalString = `${ pluralString(durationWeeks, "week") } ${ pluralString(durationDaysOfWeek, "day") }<br>(${ pluralString(durationDays, "day") })`;
+            }
+            else
+            {
+                totalString = `${ pluralString(durationWeeks, "week") }<br>(${ pluralString(durationDays, "day") })`;
+            }
+        }
+        else
+        {
+            totalString = `${ pluralString(durationDays, "day") }`;
+        }
+    }
+
+    document.querySelector("#total").innerHTML = totalString;
 
     if (updateURL) {
         history.replaceState(null, null, `?${ countryCode }`);
