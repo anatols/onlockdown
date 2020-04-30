@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Reenie+Beanie');
+
+#heading {
+    font-family: 'Reenie Beanie', fantasy;
+    font-size: 60px;
+    text-align: center;
+    padding-top: 120px;
+    padding-bottom: 70px;
+}
+
+#total {
+    font-family: 'Reenie Beanie', fantasy;
+    font-size: 40px;
+    width: 600px;
+    padding-top: 120px;
+    margin: 0 auto;
+    text-align: right;
+    transform: rotate(-30deg);
+}
+
+#country-dropdown-menu-button {
+    border-style: none;
+}
+
+#country-dropdown-menu-button:after {
+    padding: 0;
+    opacity: 50%;
+    font-size: 20px;
+}
+
+.country-dropdown-item {
+    font-size: 30px;
+}
+
+.tally-tick {
+    display:inline-block;
+}
+
+.tally-strike {
+    display:inline-block;
+    transform: scaleX(2.0) translateX(10px);
+}
+
+#tally {
+    user-select: none;
+    font-family: 'Reenie Beanie', fantasy;
+    font-size: 80px;
+    width: 600px;
+    margin: 0 auto;
+}
+
+.lds-dual-ring {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #6C757D;
+    border-color: #6C757D transparent #6C757D transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
