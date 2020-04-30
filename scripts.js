@@ -50,7 +50,7 @@ function countryDropdownItems() {
         });
 }
 
-function displayCountry(countryCode) {
+function displayCountry(countryCode, updateURL = true) {
     if (!(countryCode in countryData)) {
         countryCode = "US";
     }
@@ -81,6 +81,10 @@ function displayCountry(countryCode) {
     tallyMarks(durationDays).forEach(element => tallyContainer.appendChild(element));
 
     document.querySelector("#total").innerHTML = durationDays + " day" + (durationDays > 1 ? "s" : "");
+
+    if (updateURL) {
+        history.replaceState(null, null, `?${ countryCode }`);
+    }
 }
 
 function detectAndDisplayCountry() {
@@ -88,7 +92,7 @@ function detectAndDisplayCountry() {
     .then((response) => response.json())
     .then((result) => {
         if ("countryCode" in result) {
-            displayCountry(result["countryCode"]);
+            displayCountry(result["countryCode"], false);
         }
         else {
             displayCountry("");
@@ -103,5 +107,16 @@ document.addEventListener("DOMContentLoaded", event => {
     const dropdownItems = document.querySelector("[aria-labelledby=\"country-dropdown-menu-button\"]");
     dropdownItems.innerHTML = "";
     countryDropdownItems().forEach(element => dropdownItems.appendChild(element));
-    detectAndDisplayCountry();
+
+    let countryCode = "";
+    if (document.location.search.length == 3 && document.location.search[0] === "?") {
+        countryCode = document.location.search.slice(1, 3);
+    }
+
+    if (countryCode in countryData) {
+        displayCountry(countryCode);
+    }
+    else {
+        detectAndDisplayCountry();
+    }
 });
