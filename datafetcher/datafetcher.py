@@ -48,17 +48,19 @@ with open(input_file_name, 'r') as csvfile:
         entry_date = datetime.strptime(row['Date'], '%Y%m%d').strftime('%Y-%m-%d')
 
         if country_code not in country_data:
-            if stringency_index is not None and stringency_index > 0:
-                country_data[country_code] = { 
-                    'country_name' : country_name,
-                    'lockdown_date' : entry_date,
-                    'stringency_index' : stringency_index,
-                }
-        else:
-            if stringency_index is not None:
-                country_data[country_code]['stringency_index'] = stringency_index
+            country_data[country_code] = { 
+                'name' : country_name
+            }
 
-    country_data = dict(filter(lambda item: item[1]['stringency_index'] > 0, country_data.items()))
+        if stringency_index is not None:
+            if stringency_index > 0:
+                if 'start' not in country_data[country_code]:
+                    country_data[country_code]['start'] = entry_date
+                if 'end' in country_data[country_code]:
+                    del country_data[country_code]
+            else:
+                if 'start' in country_data[country_code]:
+                    country_data[country_code]['end'] = entry_date
 
 output_file_name = os.path.join(script_path, os.pardir, 'countrydata.js')
 print('Writing {}'.format(output_file_name))
