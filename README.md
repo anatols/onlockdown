@@ -7,7 +7,7 @@ This project is nothing serious, just a Javascript refresher for me.
 
 ## Credits
 
-I'd like to say special thanks to all the maintainers and owners of the projects my website depends on!, 
+I'd like to say special thanks to all the maintainers and owners of the projects my website depends on!
 
 ### Lockdown data
 I'm getting the data from the github repository of The Oxford COVID-19 Government Response Tracker (OxCGRT) 
