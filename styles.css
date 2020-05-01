@@ -73,3 +73,17 @@
         transform: rotate(360deg);
     }
 }
+
+a {
+    color: #81868a;
+}
+
+#footer {
+    font-family: 'Reenie Beanie', fantasy;
+    font-size: 18px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    opacity: 50%;
+}
