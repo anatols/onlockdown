@@ -25,3 +25,6 @@ Using Google Fonts (https://fonts.google.com/)
 
 ### Layout
 Using Bootstrap (https://getbootstrap.com/) which in turn uses JQuery (https://jquery.com/) and Popper (https://popper.js.org/)
+
+### Loading spinner
+Using one from https://loading.io/css/
