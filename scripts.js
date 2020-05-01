@@ -59,7 +59,7 @@ function displayCountry(countryCode, updateURL = true) {
     dropdownButton.innerText = countryData[countryCode]["name"];
 
     const startDate = new Date(countryData[countryCode]["start"]);
-    const endDate = new Date();
+    let endDate = new Date();
     let stillOnLockdown = true;
     if ("end" in countryData[countryCode]) {
         endDate = new Date(countryData[countryCode]["end"]);
