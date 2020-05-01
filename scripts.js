@@ -127,7 +127,12 @@ function detectAndDisplayCountry() {
     });
 }
 
-document.addEventListener("DOMContentLoaded", event => {
+document.addEventListener("DOMContentLoaded", (event) => {
+
+    setTimeout(function(){
+       window.location.reload();
+    }, 24 * 60 * 60 * 1000);
+
     const dropdownItems = document.querySelector("[aria-labelledby=\"country-dropdown-menu-button\"]");
     dropdownItems.innerHTML = "";
     countryDropdownItems().forEach(element => dropdownItems.appendChild(element));
