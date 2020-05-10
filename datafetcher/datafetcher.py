@@ -25,7 +25,7 @@ os.chdir(script_path)
 country_data = {}
 
 lockdown_indicators = [
-    'C1_School closing',
+#    'C1_School closing',
     'C2_Workplace closing',
     'C5_Close public transport',
     'C6_Stay at home requirements',
@@ -87,6 +87,6 @@ with open(input_file_name, 'r') as csvfile:
 output_file_name = os.path.join(script_path, os.pardir, 'countrydata.js')
 print('Writing {}'.format(output_file_name))
 with open(output_file_name, 'w') as outfile:
-    outfile.write('const countryData=');
+    outfile.write('const countryData=')
     json.dump(country_data, outfile, separators=(',', ':'))
-    outfile.write(';');
+    outfile.write(';')
